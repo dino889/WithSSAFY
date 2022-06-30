@@ -1,0 +1,68 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.ssafy'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+def querydslVersion = '4.3.1'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// swagger
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+
+	// model mapper
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8'
+
+	// devtools
+	implementation group: 'org.springframework.boot', name: 'spring-boot-devtools'
+
+	// commons io
+	implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+
+	// fcm
+	implementation 'com.google.firebase:firebase-admin:8.1.0'
+
+	//okhttp3
+	implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.2.2'
+
+	// queryDSL
+	implementation group: 'com.querydsl', name: 'querydsl-jpa', version: querydslVersion
+	implementation group: 'com.querydsl', name: 'querydsl-apt', version: querydslVersion
+	implementation group: 'com.querydsl', name: 'querydsl-core', version: querydslVersion
+
+	annotationProcessor group: 'com.querydsl', name: 'querydsl-apt', version: querydslVersion
+	annotationProcessor group: 'com.querydsl', name: 'querydsl-apt', version: querydslVersion, classifier: 'jpa'
+	annotationProcessor("jakarta.persistence:jakarta.persistence-api")
+	annotationProcessor("jakarta.annotation:jakarta.annotation-api")
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+	//useJUnitPlatform()
+}

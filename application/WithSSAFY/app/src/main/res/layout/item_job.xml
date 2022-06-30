@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="recruit"
+            type="com.ssafy.withssafy.src.dto.Recruit" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerInside"
+                app:jobImageUrl="@{recruit.photoPath}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/fragment_job_CompanyName"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="@{recruit.company}"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/fragment_job_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{recruit.job}"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout21"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_job_frame" />
+
+        <FrameLayout
+            android:id="@+id/fragment_job_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/fragment_job_like"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="heart.json"
+            app:lottie_loop="false"
+            android:visibility="visible"/>
+
+            <ImageButton
+                android:id="@+id/fragment_job_more"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:visibility="gone"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/ic_more_black" />
+        </FrameLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/fragment_job_chip_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout21"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/fragment_job_title"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_job_title">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/fragment_job_career"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/more_light_grey"
+                    android:text="@{recruit.career}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:chipEndPadding="10dp"
+                    app:chipStartPadding="10dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/fragment_job_Education"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/more_light_grey"
+                    android:text="@{recruit.education}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:chipEndPadding="10dp"
+                    app:chipStartPadding="10dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/fragment_job_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/more_light_grey"
+                    android:text="@{recruit.employType}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:chipEndPadding="10dp"
+                    app:chipStartPadding="10dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/fragment_job_companyAddr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/more_light_grey"
+                    android:text="@{recruit.location}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:chipEndPadding="10dp"
+                    app:chipStartPadding="10dp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_backgroud">
+
+    <TextView
+        android:id="@+id/reportDialog_tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🚨 신고하기 🚨"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/reportDialog_tvContent"/>
+
+    <EditText
+        android:id="@+id/reportDialog_tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:textSize="16sp"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:hint="신고 사유를 입력해 주세요."
+        app:layout_constraintBottom_toTopOf="@+id/reportDialog_clBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportDialog_tvTitle" />
+<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout11" />-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/reportDialog_clBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportDialog_tvContent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/reportDialog_btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_button_stroke_left"
+            android:text="취소"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/reportDialog_btnReport"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/reportDialog_btnReport"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_button_stoke_right"
+            android:text="신고하기"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/reportDialog_btnCancel"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ssafy.withssafy.src.viewmodel.RecruitViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".src.main.board.JobDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_jobDetail_appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/fragment_jobDetail_appBarPrev"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fragment_jobDetail_appBarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="채용 정보"
+                android:textStyle="bold"
+                android:fontFamily="@font/baseregular"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_jobDetail_appBar"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fragment_jobDetail_companyInfoDiv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/edit_background">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView5"
+                        app:layout_constraintTop_toTopOf="@+id/imageView5">
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.recruit.company}"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/fragment_jobDetail_companyInfoAddr"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@{viewModel.recruit.location}"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/textView14"
+                            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/fragment_jobDetail_clMoney"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/fragment_jobDetail_companyInfoAddr"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_jobDetail_companyInfoAddr">
+
+                            <TextView
+                                android:id="@+id/textView18"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="급여  |"
+                                android:textColor="@color/black"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/fragment_jobDetail_companyInfoMoney"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="@{viewModel.recruit.salary}"
+                                android:textColor="@color/black"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/textView18"
+                                app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/fragment_jobDetail_clTime"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_jobDetail_clMoney">
+
+                            <TextView
+                                android:id="@+id/textView45"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="근무시간 |"
+                                android:textColor="@color/black"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textView46"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="@{viewModel.recruit.workingHours}"
+                                android:textColor="@color/black"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView45"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/textView45"
+                                app:layout_constraintTop_toTopOf="@+id/textView45" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/textView44"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="@{@string/date_format(viewModel.recruit.startDate, viewModel.recruit.endDate)}"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_jobDetail_clTime" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="fitXY"
+                        app:jobImageUrl="@{viewModel.recruit.photoPath}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@tools:sample/avatars" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:weightSum="4">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="4"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/textView22"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:background="@color/purple_200"
+                            android:gravity="clip_horizontal|center|center_vertical"
+                            android:padding="10dp"
+                            android:text="모집직종"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/fragment_jobDetail_job"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="2.8"
+                            android:autoSizeMaxTextSize="14dp"
+                            android:autoSizeMinTextSize="8dp"
+                            android:autoSizeTextType="uniform"
+                            android:gravity="center_vertical"
+                            android:text="@{viewModel.recruit.job}"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="4"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/textView38"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:background="@color/purple_200"
+                            android:gravity="clip_horizontal|center|center_vertical"
+                            android:padding="10dp"
+                            android:text="담당업무"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/fragment_jobDetail_taskDescription"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="2.8"
+                            android:autoSizeMaxTextSize="14dp"
+                            android:autoSizeMinTextSize="8dp"
+                            android:autoSizeTextType="uniform"
+                            android:gravity="center_vertical"
+                            android:text="@{viewModel.recruit.taskDescription}"
+                            android:textColor="@color/black" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="4"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/textView40"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:background="@color/purple_200"
+                            android:gravity="clip_horizontal|center|center_vertical"
+                            android:padding="10dp"
+                            android:text="자격요건\n및\n우대사항"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/fragment_jobDetail_PreferenceDesc"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="2.8"
+                            android:autoSizeMaxTextSize="14dp"
+                            android:autoSizeTextType="uniform"
+                            android:gravity="center_vertical"
+                            android:text="@{@string/spec_prefer_format(viewModel.recruit.career, viewModel.recruit.education, viewModel.recruit.preferenceDescription, viewModel.recruit.employType)}"
+                            android:textColor="@color/black"
+                            android:autoSizeMinTextSize="8dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="4"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/textView42"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:background="@color/purple_200"
+                            android:gravity="clip_horizontal|center|center_vertical"
+                            android:padding="10dp"
+                            android:text="복리후생"
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/fragment_jobDetail_welfare"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="2.8"
+                            android:autoSizeMaxTextSize="14dp"
+                            android:autoSizeMinTextSize="8dp"
+                            android:autoSizeTextType="uniform"
+                            android:gravity="center_vertical"
+                            android:text="@{viewModel.recruit.welfare}"
+                            android:textColor="@color/black" />
+                    </TableRow>
+                </TableLayout>
+
+                <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                    android:id="@+id/fragment_jobDetail_jobDiv"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="16dp">-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/textView22"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_marginStart="16dp"-->
+                <!--                        android:text="모집직종  |"-->
+                <!--                        android:textColor="@color/black"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/fragment_jobDetail_job"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_marginStart="8dp"-->
+                <!--                        android:layout_marginEnd="16dp"-->
+                <!--                        android:text="@{viewModel.recruit.job}"-->
+                <!--                        android:textColor="@color/black"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="@+id/textView22"-->
+                <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                        app:layout_constraintStart_toEndOf="@+id/textView22"-->
+                <!--                        app:layout_constraintTop_toTopOf="@+id/textView22" />-->
+                <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                    android:id="@+id/fragment_jobDetail_taskDescriptionDiv"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content">-->
+
+
+                <!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                        android:id="@+id/constraintLayout7"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_marginStart="8dp"-->
+                <!--                        android:layout_marginEnd="16dp"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                        app:layout_constraintStart_toEndOf="@+id/textView38"-->
+                <!--                        app:layout_constraintTop_toTopOf="@+id/textView38">-->
+
+
+                <!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+                <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                    android:id="@+id/fragment_jobDetail_PreferenceDescDiv"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent">-->
+
+                /////
+
+
+                <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                    android:id="@+id/fragment_jobDetail_welfareDiv"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent">-->
+
+
+                <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

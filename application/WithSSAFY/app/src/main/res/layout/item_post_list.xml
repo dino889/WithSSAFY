@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="board"
+            type="com.ssafy.withssafy.src.dto.board.Board" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/postListItem_cl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/postListItem_clTitleContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/postListItem_tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{board.title}"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toStartOf="@+id/postListItem_btnMore"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/postListItem_btnMore"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/postListItem_tvTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/postListItem_tvTitle"
+                app:layout_constraintTop_toTopOf="@+id/postListItem_tvTitle"
+                app:srcCompat="@drawable/ic_more_black" />
+
+            <TextView
+                android:id="@+id/postListItem_tvContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                app:ellipsisContent="@{board.content}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/postListItem_tvTitle" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/postListItem_clTypeAndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postListItem_clTitleContent">
+
+            <TextView
+                android:id="@+id/postListItem_tvBoardType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{board.boardType.type}"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/postListItem_viewLine1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="|"
+                android:textColor="@color/purple_200"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/postListItem_tvBoardType"
+                app:layout_constraintEnd_toStartOf="@+id/postListItem_tvDate"
+                app:layout_constraintStart_toEndOf="@+id/postListItem_tvBoardType"
+                app:layout_constraintTop_toTopOf="@+id/postListItem_tvBoardType" />
+
+            <TextView
+                android:id="@+id/postListItem_tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/postListItem_viewLine1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:unixToDate="@{board.writeDateTime}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/postListItem_clHeartComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/postListItem_clTypeAndDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/postListItem_clTypeAndDate">
+
+            <LinearLayout
+                android:id="@+id/postListItem_llLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/postListItem_llComment"
+                android:layout_marginEnd="10dp">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/postListItem_lottieHeart"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerInside"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/postListItem_tvLike"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_fileName="heart.json"
+                    app:lottie_loop="false" />
+
+                <TextView
+                    android:id="@+id/postListItem_tvHeartCnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/red"
+                    android:includeFontPadding="false"
+                    android:layout_gravity="center"
+                    android:text="@{String.valueOf(board.likeCount)}"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postListItem_llComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/postListItem_llLike">
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/comment"
+                    app:tint="@color/purple_500" />
+
+                <TextView
+                    android:id="@+id/postListItem_tvCommentCnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/purple_500"
+                    android:includeFontPadding="false"
+                    android:text="@{String.valueOf(board.commentCount)}"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/postListItem_viewLine"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginTop="5dp"
+            android:background="@color/dark_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postListItem_clHeartComment" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.ssafy.withssafy.src.main.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_userFragment"
+            app:destination="@+id/userFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_boardJobFragment"
+            app:destination="@+id/boardJobFragment"/>
+
+        <action
+            android:id="@+id/action_homeFragment_to_boardDetailFragment"
+            app:destination="@id/boardDetailFragment" >
+
+            <argument
+                android:name="typeId"
+                app:argType="integer"
+                android:defaultValue="0"/>
+        </action>
+
+
+        <action
+            android:id="@+id/action_homeFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" >
+
+            <argument
+                android:name="postId"
+                app:argType="integer"
+                android:defaultValue="-1"/>
+
+            <argument
+                android:name="typeId"
+                app:argType="integer"
+                android:defaultValue="-1"/>
+        </action>
+
+        <action
+            android:id="@+id/action_homeFragment_to_reportFragment"
+            app:destination="@+id/reportFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.ssafy.withssafy.src.main.schedule.ScheduleFragment"
+        android:label="fragment_schedule"
+        tools:layout="@layout/fragment_schedule" />
+
+    <fragment
+        android:id="@+id/boardFragment"
+        android:name="com.ssafy.withssafy.src.main.board.BoardFragment"
+        android:label="fragment_board"
+        tools:layout="@layout/fragment_board" >
+
+        <!-- 게시판 리스트 -> 게시판 detail -->
+        <action
+            android:id="@+id/action_boardListFragment_to_boardDetailFragment"
+            app:destination="@id/boardDetailFragment" />
+        <argument
+            android:name="typeId"
+            app:argType="integer"
+            android:defaultValue="0"/>
+
+        <!-- 채용 공고 리스스 -> 채용 공고 작성 -->
+        <action
+            android:id="@+id/action_boardJobFragment_to_adminJobWriteFragment"
+            app:destination="@id/adminJobWriteFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.ssafy.withssafy.src.main.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="com.ssafy.withssafy.src.main.team.TeamFragment"
+        android:label="fragment_team"
+        tools:layout="@layout/fragment_team" />
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.ssafy.withssafy.src.main.home.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" >
+
+        <action
+            android:id="@+id/action_userFragment_to_userInfoChangeFragment"
+            app:destination="@+id/userInfoChangeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userInfoChangeFragment"
+        android:name="com.ssafy.withssafy.src.main.home.UserInfoChangeFragment"
+        android:label="fragment_user_info_change"
+        tools:layout="@layout/fragment_user_info_change" />
+    <fragment
+        android:id="@+id/boardJobFragment"
+        android:name="com.ssafy.withssafy.src.main.board.BoardJobFragment"
+        android:label="fragment_board_job"
+        tools:layout="@layout/fragment_board_job">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminJobWriteFragment"
+        android:name="com.ssafy.withssafy.src.main.board.AdminJobWriteFragment"
+        android:label="fragment_admin_job_write"
+        tools:layout="@layout/fragment_admin_job_write">
+        <argument
+            android:name="recruitId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/boardListFragment"
+        android:name="com.ssafy.withssafy.src.main.board.BoardListFragment"
+        android:label="fragment_boardList"
+        tools:layout="@layout/fragment_board_list" />
+
+    <fragment
+        android:id="@+id/boardDetailFragment"
+        android:name="com.ssafy.withssafy.src.main.board.BoardDetailFragment"
+        android:label="fragment_boardDetail"
+        tools:layout="@layout/fragment_board_detail" >
+
+        <!-- 게시글 리스트 -> 게시글 상세 조회 : postId, typeId-->
+        <action
+            android:id="@+id/action_boardDetailFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+
+        <!-- 게시글 리스트 -> 게시글 작성 : typeId-->
+        <action
+            android:id="@+id/action_boardDetailFragment_to_postWriteFragment"
+            app:destination="@id/postWriteFragment" />
+
+        <argument
+            android:name="postId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+
+        <argument
+            android:name="typeId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.ssafy.withssafy.src.main.board.PostDetailFragment"
+        android:label="fragment_postDetail"
+        tools:layout="@layout/fragment_post_detail" >
+        <!-- 게시글 상세 화면 -> 댓글 리스트 조회 : postId -->
+        <action
+            android:id="@+id/action_postDetailFragment_to_commentFragment"
+            app:destination="@id/commentFragment" />
+
+        <!-- 게시글 상세 화면 -> 게시글 수정 : postId, typeId -->
+        <action
+            android:id="@+id/action_postDetailFragment_to_postWriteFragment"
+            app:destination="@+id/postWriteFragment" />
+
+        <argument
+            android:name="postId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+
+        <argument
+            android:name="typeId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="com.ssafy.withssafy.src.main.board.CommentFragment"
+        android:label="fragment_comment"
+        tools:layout="@layout/fragment_comment" />
+
+    <fragment
+        android:id="@+id/postWriteFragment"
+        android:name="com.ssafy.withssafy.src.main.board.PostWriteFragment"
+        android:label="fragment_postWrite"
+        tools:layout="@layout/fragment_post_write" />
+
+
+    <fragment
+        android:id="@+id/teamWriteFragment"
+        android:name="com.ssafy.withssafy.src.main.team.TeamWriteFragment"
+        android:label="fragment_team_write"
+        tools:layout="@layout/fragment_team_write" >
+        <argument
+            android:name="studyId"
+            android:defaultValue="-1"
+            app:argType="integer"/>
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetailFragment"
+        android:name="com.ssafy.withssafy.src.main.team.TeamDetailFragment"
+        android:label="fragment_team_detail"
+        tools:layout="@layout/fragment_team_detail" >
+        <argument
+            android:name="studyId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.ssafy.withssafy.src.main.notification.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/messageDetailFragment"
+        android:name="com.ssafy.withssafy.src.main.notification.MessageDetailFragment"
+        android:label="fragment_message_detail"
+        tools:layout="@layout/fragment_message_detail">
+        <argument
+            android:name="fromId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="toId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/jobDetailFragment"
+        android:name="com.ssafy.withssafy.src.main.board.JobDetailFragment"
+        android:label="fragment_job_detail"
+        tools:layout="@layout/fragment_job_detail" >
+        <argument
+            android:name="recruitId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/requestFragment"
+        android:name="com.ssafy.withssafy.src.main.home.RequestFragment"
+        android:label="fragment_request"
+        tools:layout="@layout/fragment_request">
+
+    </fragment>
+    <fragment
+        android:id="@+id/curriculumWriteFragment"
+        android:name="com.ssafy.withssafy.src.main.schedule.CurriculumWriteFragment"
+        android:label="fragment_curriculum_write"
+        tools:layout="@layout/fragment_curriculum_write">
+        <argument
+            android:defaultValue="0"
+            android:name="scheduleId"
+            app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/noticeWriteFragment"
+        android:name="com.ssafy.withssafy.src.main.board.NoticeWriteFragment"
+        android:label="fragment_notice_wirte"
+        tools:layout="@layout/fragment_notice_write">
+        <argument
+            android:name="noticeId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/boardNoticeListFragment"
+        android:name="com.ssafy.withssafy.src.main.board.BoardNoticeListFragment"
+        android:label="fragment_board_notice_list"
+        tools:layout="@layout/fragment_board_notice_list" >
+        <argument
+            android:name="typeId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/baordNoticeDetailFragment"
+        android:name="com.ssafy.withssafy.src.main.board.BoardNoticeDetailFragment"
+        android:label="fragment_board_notice_detail"
+        tools:layout="@layout/fragment_board_notice_detail" >
+        <argument
+            android:name="noticeId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+    <fragment
+        android:id="@+id/studyCommentFragment"
+        android:name="com.ssafy.withssafy.src.main.team.StudyCommentFragment"
+        android:label="fragment_study_comment"
+        tools:layout="@layout/fragment_study_comment" >
+        <argument
+            android:name="studyId"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/boardClassNoticeListFragment"
+        android:name="com.ssafy.withssafy.src.main.board.BoardClassNoticeListFragment"
+        android:label="fragment_board_class_notice_list"
+        tools:layout="@layout/fragment_board_class_notice_list">
+        <argument
+            android:name="position"
+            android:defaultValue="0"
+            app:argType="integer"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/studyFragment"
+        android:name="com.ssafy.withssafy.src.main.team.StudyFragment"
+        android:label="StudyFragment" />
+    <fragment
+        android:id="@+id/teamAdminFragment"
+        android:name="com.ssafy.withssafy.src.main.team.TeamAdminFragment"
+        android:label="fragment_team_admin"
+        tools:layout="@layout/fragment_team_admin" />
+    <fragment
+        android:id="@+id/teamBuildFragment"
+        android:name="com.ssafy.withssafy.src.main.team.TeamBuildFragment"
+        android:label="fragment_team_build"
+        tools:layout="@layout/fragment_team_build" />
+
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.ssafy.withssafy.src.main.home.ReportFragment"
+        android:label="fragment_report"
+        tools:layout="@layout/fragment_report" />
+</navigation>

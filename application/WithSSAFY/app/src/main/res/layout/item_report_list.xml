@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="report"
+            type="com.ssafy.withssafy.src.dto.report.Report" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp">
+
+        <TextView
+            android:id="@+id/reportAtHomeItem_tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="[게시글]"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/reportAtHomeItem_tvReportContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textAlignment="viewEnd"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/reportAtHomeItem_tvCategory"
+        app:layout_constraintBottom_toBottomOf="@+id/reportAtHomeItem_tvCategory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:ellipsisContent="@{report.content}"
+        app:layout_constraintTop_toTopOf="@+id/reportAtHomeItem_tvCategory" />
+<!--        android:text="신고 내용"-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

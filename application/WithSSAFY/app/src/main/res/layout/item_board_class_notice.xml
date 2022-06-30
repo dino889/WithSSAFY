@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="notice"
+            type="com.ssafy.withssafy.src.dto.notice.Notice" />
+
+        <variable
+            name="user"
+            type="com.ssafy.withssafy.src.network.response.UserAuthResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/boardListFragment_classNoticeBoard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/boardClassNoticeItem_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.user.name}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/boardClassNoticeItem_auth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            authConvert="@{user.auth}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/boardClassNoticeItem_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/boardNotiMustReadItem_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:autoSizeMinTextSize="8dp"
+            android:autoSizeTextType="uniform"
+            noticeLimitText="@{notice.title}"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:maxEms="5"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/boardClassNoticeItem_auth"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

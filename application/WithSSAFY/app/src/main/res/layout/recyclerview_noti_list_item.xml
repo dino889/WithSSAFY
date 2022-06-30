@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="noti"
+            type="com.ssafy.withssafy.src.dto.Notification" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/rv_item_tv_noti_list_delete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/red"
+                android:text="삭제"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_weight="3"/>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/swipe_layout_noti_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clickable="true"
+            android:focusable="true">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/rv_item_cv_noti_list_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:backgroundTint="@color/purple_500"
+                app:cardCornerRadius="160dp"
+                app:cardElevation="0dp"
+                android:layout_marginVertical="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/rv_item_iv_noti_list_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/alert"
+                    app:tint="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintStart_toEndOf="@+id/rv_item_cv_noti_list_icon"
+                app:layout_constraintTop_toTopOf="@+id/rv_item_cv_noti_list_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/rv_item_cv_noti_list_icon">
+
+                <TextView
+                    android:id="@+id/rv_item_tv_noti_list_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{noti.title}"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/rv_item_tv_noti_list_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/rv_item_tv_noti_list_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{noti.content}"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/more_dark_grey"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_item_tv_noti_list_title"
+                    app:layout_constraintBottom_toTopOf="@+id/rv_item_tv_noti_list_datetime"/>
+                <!--                android:maxLines="1"-->
+                <!--                android:ellipsize="end"-->
+                <!--                android:maxEms="15"-->
+
+                <TextView
+                    android:id="@+id/rv_item_tv_noti_list_datetime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="22/05/19 23:59"
+                    unixToDate="@{noti.dateTime}"
+                    android:textSize="11sp"
+                    android:textAlignment="viewStart"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_item_tv_noti_list_content"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

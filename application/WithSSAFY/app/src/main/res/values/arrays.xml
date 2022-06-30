@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="noti">
+        <item>전체</item>
+        <item>공지사항</item>
+        <item>사용자</item>
+        <item>취업공고</item>
+    </string-array>
+</resources>

@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.main.board.AdminJobWriteFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_jobWrite_appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/fragment_jobWrite_appBarPrev"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fragment_jobWrite_appBarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="채용 글작성"
+                android:textStyle="bold"
+                android:fontFamily="@font/baseregular"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fragment_jobWrite_write"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="완료"
+                android:textColor="@color/purple_200"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_appBar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fragment_companyInfo_Layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_jobWrite_companyInfo_WorkTimeLayout"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_jobWrite_companyInfo_WorkTimeLayout"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_companyInfo_WorkTimeLayout">
+
+                        <FrameLayout
+                            android:id="@+id/fragment_jobWrite_photoGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_jobWrite_cameraBtn"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_cameraBtn">
+
+                            <ImageButton
+                                android:id="@+id/fragment_jobWrite_companyCancle"
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_gravity="right"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="8dp"
+                                android:background="@android:color/transparent"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/cancel" />
+
+                            <ImageView
+                                android:id="@+id/fragment_jobWrite_companyImg"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:scaleType="fitXY"
+                                tools:src="@tools:sample/avatars" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/textView61"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="기업사진"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                            android:id="@+id/fragment_jobWrite_cameraBtn"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/camera"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/fragment_jobWrite_companyInfoTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="기업정보"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fragment_jobWrite_companyInfo_Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="기업명"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_jobWrite_companyInfoTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_companyInfoTitle" />
+
+                    <EditText
+                        android:id="@+id/fragment_jobWrite_companyInfo_NameEdit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/edit_nonpadding_background"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:padding="5dp"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/fragment_jobWrite_companyInfo_Name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_jobWrite_companyInfo_Name"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_companyInfo_Name" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fragment_jobWrite_companyInfo_WorkTimeLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_jobWrite_companyInfo_SalaryLayout"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_jobWrite_companyInfo_SalaryLayout"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_companyInfo_SalaryLayout">
+
+                        <TextView
+                            android:id="@+id/fragment_jobWrite_companyInfo_WorkTimeTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="근무시간"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/fragment_jobWrite_companyInfo_WorkTimeEdit"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_companyInfo_WorkTimeEdit" />
+
+                        <EditText
+                            android:id="@+id/fragment_jobWrite_companyInfo_WorkTimeEdit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/edit_nonpadding_background"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:padding="5dp"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_jobWrite_companyInfo_WorkTimeTitle"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fragment_jobWrite_companyInfo_SalaryLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_jobWrite_companyInfo_AddrLayout"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_jobWrite_companyInfo_AddrLayout"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_companyInfo_AddrLayout">
+
+                        <TextView
+                            android:id="@+id/fragment_jobWrite_companyInfo_SalaryTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="급여"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_companyInfo_SalaryEdit" />
+
+                        <EditText
+                            android:id="@+id/fragment_jobWrite_companyInfo_SalaryEdit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:background="@drawable/edit_nonpadding_background"
+                            android:ems="10"
+                            android:textSize="14sp"
+                            android:inputType="textPersonName"
+                            android:padding="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_jobWrite_companyInfo_SalaryTitle"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fragment_jobWrite_companyInfo_AddrLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_jobWrite_companyInfo_NameEdit"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_jobWrite_companyInfo_Name"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_companyInfo_NameEdit">
+
+                        <TextView
+                            android:id="@+id/fragment_jobWrite_companyInfo_AddrTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="근무지"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_companyInfo_AddrEdit" />
+
+                        <EditText
+                            android:id="@+id/fragment_jobWrite_companyInfo_AddrEdit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:background="@drawable/edit_nonpadding_background"
+                            android:ems="10"
+                            android:textSize="14sp"
+                            android:inputType="textPersonName"
+                            android:padding="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_jobWrite_companyInfo_AddrTitle"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fragment_jobWrite_JobLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/fragment_jobWrite_JobTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="모집직종"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/fragment_jobWrite_jobEdit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/edit_background"
+                        android:ems="10"
+                        android:textSize="14sp"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_jobWrite_JobTitle"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fragment_jobWrite_TaskLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/fragment_jobWrite_TaskTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="5dp"
+                        android:text="담당업무"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_TaskEdit" />
+
+                    <EditText
+                        android:id="@+id/fragment_jobWrite_TaskEdit"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:textSize="14sp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/edit_background"
+                        android:ems="10"
+                        android:gravity="start|top"
+                        android:inputType="textMultiLine"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_jobWrite_TaskTitle"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fragment_jobWrite_AddInfoLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/fragment_jobWrite_AddInfoTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="자격요건"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fragment_jobWrite_AddInfo_CareerTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="경력"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_jobWrite_AddInfoTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_AddInfoTitle" />
+
+                    <CheckBox
+                        android:id="@+id/fragment_jobWrite_AddInfo_CareerSenior"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="경력"
+                        app:layout_constraintBottom_toBottomOf="@+id/fragment_jobWrite_AddInfo_CareerTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_AddInfo_CareerTitle" />
+
+                    <CheckBox
+                        android:id="@+id/fragment_jobWrite_AddInfo_CareerNew"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="신입"
+                        app:layout_constraintBottom_toBottomOf="@+id/fragment_jobWrite_AddInfo_CareerSenior"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_jobWrite_AddInfo_CareerSenior"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_AddInfo_CareerSenior" />
+
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fragment_jobWrite_EduLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_jobWrite_AddInfo_CareerTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_AddInfo_CareerSenior">
+
+                        <TextView
+                            android:id="@+id/fragment_jobWrite_EduTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="학력"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/fragment_jobWrite_EduSpinner"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_EduSpinner" />
+
+                        <Spinner
+                            android:id="@+id/fragment_jobWrite_EduSpinner"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="73dp"
+                            app:layout_constraintStart_toEndOf="@id/fragment_jobWrite_EduTitle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fragment_jobWrite_PreferenceLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_jobWrite_EduLayout"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_jobWrite_EduLayout"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_EduLayout">
+
+                        <TextView
+                            android:id="@+id/fragment_jobWrite_PreferenceTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="우대사항"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_PreferenceSpinner" />
+
+                        <Spinner
+                            android:id="@+id/fragment_jobWrite_PreferenceSpinner"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            app:layout_constraintStart_toEndOf="@id/fragment_jobWrite_PreferenceTitle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fragment_jobWrite_CareerTypeLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_jobWrite_PreferenceLayout"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_jobWrite_PreferenceLayout"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_PreferenceLayout"
+                        >
+
+                        <TextView
+                            android:id="@+id/fragment_jobWrite_CareerTypeTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="고용형태"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@+id/fragment_jobWrite_CareerTypeSpinner"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Spinner
+                            android:id="@+id/fragment_jobWrite_CareerTypeSpinner"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/fragment_jobWrite_CareerTypeTitle"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fragment_jobWrite_welfareLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_jobWrite_CareerTypeLayout"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_jobWrite_CareerTypeLayout"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_CareerTypeLayout"
+                        >
+
+                        <TextView
+                            android:id="@+id/fragment_jobWrite_welfareTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="복리후생"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/fragment_jobWrite_welfareEdit"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_welfareEdit" />
+
+                        <EditText
+                            android:id="@+id/fragment_jobWrite_welfareEdit"
+                            android:layout_width="0dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="50dp"
+                            android:background="@drawable/edit_nonpadding_background"
+                            android:ems="10"
+                            android:textSize="14sp"
+                            android:inputType="textMultiLine"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_jobWrite_welfareTitle"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_welfareTitle" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fragment_jobWrite_applyLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/fragment_jobWrite_applyTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="10dp"
+                        android:text="지원방법"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fragment_jobWrite_applyTimeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="기간"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@+id/fragment_jobWrite_applyTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_applyTitle" />
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_jobWrite_applyTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_jobWrite_applyTitle">
+
+                        <TextView
+                            android:id="@+id/fragment_jobWrite_datePicker_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="기간 선택하기"
+                            android:includeFontPadding="false"
+                            android:layout_gravity="end|center_vertical"
+                            android:visibility="visible"
+                            />
+
+                        <!--<androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/fragment_jobWrite_applyTime_Layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            >
+
+                            <TextView
+                                android:id="@+id/fragment_jobWrite_applyTimeStart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:background="@drawable/textview_background"
+                                android:padding="5dp"
+                                android:text="TextView"
+                                android:textColor="@color/black"
+                                app:layout_constraintBottom_toBottomOf="@+id/fragment_jobWrite_applyTimeEnd"
+                                app:layout_constraintEnd_toStartOf="@+id/textView53"
+                                app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_applyTimeEnd" />
+
+                            <TextView
+                                android:id="@+id/textView53"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="~"
+                                android:textColor="@color/black"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/fragment_jobWrite_applyTimeEnd"
+                                app:layout_constraintTop_toTopOf="@+id/fragment_jobWrite_applyTimeEnd" />
+
+                            <TextView
+                                android:id="@+id/fragment_jobWrite_applyTimeEnd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/textview_background"
+                                android:padding="5dp"
+                                android:text="TextView"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                    </FrameLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

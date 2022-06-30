@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="홈"
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/home">
+    </item>
+    <item
+        android:title="일정"
+        android:id="@+id/scheduleFragment"
+        android:icon="@drawable/clock">
+    </item>
+    <item
+        android:title="게시판"
+        android:id="@+id/boardFragment"
+        android:icon="@drawable/contract">
+    </item>
+    <item
+        android:title="알림"
+        android:id="@+id/notificationFragment"
+        android:icon="@drawable/notification">
+    </item>
+    <item
+        android:title="팀빌딩"
+        android:id="@+id/teamFragment"
+        android:icon="@drawable/friends">
+    </item>
+
+</menu>

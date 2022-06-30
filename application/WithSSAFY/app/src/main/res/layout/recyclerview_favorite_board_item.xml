@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/rv_item_tv_favorite_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="질문게시판"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rv_item_tv_favorite_board_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="팀장님이 자꾸 PM 교육받기 싫어하시는데 어떡하죠"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/rv_item_tv_favorite_board"
+        app:layout_constraintLeft_toRightOf="@id/rv_item_tv_favorite_board"
+        app:layout_constraintTop_toTopOf="@id/rv_item_tv_favorite_board" />
+</androidx.constraintlayout.widget.ConstraintLayout>

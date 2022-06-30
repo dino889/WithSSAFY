@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="notice"
+            type="com.ssafy.withssafy.src.dto.notice.Notice" />
+        <variable
+            name="user"
+            type="com.ssafy.withssafy.src.network.response.UserAuthResponse" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/item_class_notice_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{user.user.name}"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/item_class_notice_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        authConvert="@{user.auth}"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@id/item_class_notice_name"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/item_class_notice_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/grey"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/item_class_notice_auth"
+        app:layout_constraintTop_toTopOf="parent"
+        app:wirteDateClassNoticeConvert="@{notice.writeDt}" />
+
+    <ImageButton
+        android:id="@+id/item_class_notice_more"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/item_class_notice_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/item_class_notice_time"
+        app:srcCompat="@drawable/ic_more_black" />
+
+    <TextView
+        android:id="@+id/item_class_notice_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@{notice.title}"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/basebold"
+        app:layout_constraintTop_toBottomOf="@id/item_class_notice_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/item_class_notice_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{notice.content}"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/item_class_notice_title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/item_class_notice_img"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_class_notice_content"
+        app:noticeImageUrl="@{notice.photoPath}"
+        tools:src="@tools:sample/avatars" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_class_notice_img" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

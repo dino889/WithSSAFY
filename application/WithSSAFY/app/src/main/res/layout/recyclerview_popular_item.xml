@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="board"
+            type="com.ssafy.withssafy.src.dto.board.Board" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rv_item_cl"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:id="@+id/rv_item_iv_popular_profile"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/user_icon"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/rv_item_tv_popular_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="익명"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toTopOf="@id/rv_item_iv_popular_profile"
+            app:layout_constraintBottom_toBottomOf="@id/rv_item_iv_popular_profile"
+            app:layout_constraintLeft_toRightOf="@id/rv_item_iv_popular_profile"
+            />
+
+        <TextView
+            android:id="@+id/rv_item_tv_popular_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{board.title}"
+            android:layout_marginTop="10dp"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/rv_item_iv_popular_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/rv_item_tv_popular_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ellipsisContent="@{board.content}"
+            android:textColor="@color/more_dark_grey"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintTop_toBottomOf="@id/rv_item_tv_popular_title"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/rv_item_tv_popular_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:unixToDate="@{board.writeDateTime}"
+            android:layout_marginTop="5dp"
+            android:textSize="11sp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintTop_toBottomOf="@id/rv_item_tv_popular_content"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/rv_item_tv_popular_board_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{board.boardType.type}"
+            android:layout_marginEnd="5dp"
+            android:textSize="11sp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rv_item_iv_popular_profile"
+            app:layout_constraintBottom_toBottomOf="@id/rv_item_iv_popular_profile"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rv_item_popular_clHeartComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toTopOf="@id/rv_item_tv_popular_date"
+            app:layout_constraintBottom_toBottomOf="@id/rv_item_tv_popular_date"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:id="@+id/rv_item_popular_llLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/rv_item_popular_llComment"
+                android:layout_marginEnd="10dp">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/rv_item_popular_lottieHeart"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerInside"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rv_item_tv_popular_tvLike"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_fileName="heart.json"
+                    app:lottie_loop="false" />
+
+                <TextView
+                    android:id="@+id/rv_item_popular_tvHeartCnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/red"
+                    android:includeFontPadding="false"
+                    android:layout_gravity="center"
+                    android:text="@{String.valueOf(board.likeCount)}"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rv_item_popular_llComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rv_item_popular_llLike">
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/comment"
+                    app:tint="@color/purple_500" />
+
+                <TextView
+                    android:id="@+id/rv_item_popular_tvCommentCnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/purple_500"
+                    android:includeFontPadding="false"
+                    android:text="@{String.valueOf(board.commentCount)}"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/rv_item_layout_popular_like"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            app:layout_constraintTop_toTopOf="@id/rv_item_tv_popular_date"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/rv_item_tv_popular_date"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/rv_item_layout_popular_comment">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="13dp"-->
+<!--                android:layout_height="13dp"-->
+<!--                android:src="@drawable/thumb"-->
+<!--                android:layout_marginEnd="5dp"-->
+<!--                app:tint="@color/red" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="13sp"-->
+<!--                android:textColor="@color/red"-->
+<!--                android:includeFontPadding="false"-->
+<!--                android:text="@{String.valueOf(board.likeCount)}"/>-->
+
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/rv_item_layout_popular_comment"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@id/rv_item_layout_popular_like"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/rv_item_layout_popular_like">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="13dp"-->
+<!--                android:layout_height="13dp"-->
+<!--                android:src="@drawable/comment"-->
+<!--                android:layout_marginEnd="5dp"-->
+<!--                app:tint="@color/purple_500" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="13sp"-->
+<!--                android:textColor="@color/purple_500"-->
+<!--                android:includeFontPadding="false"-->
+<!--                android:text="@{String.valueOf(board.commentCount)}"/>-->
+
+<!--        </LinearLayout>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

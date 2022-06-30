@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="post"
+            type="com.ssafy.withssafy.src.dto.board.Board" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".src.main.board.PostWriteFragment">
+
+        <!-- App bar 시작 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/postWriteFragment_clAppbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/postWriteFragment_ibBack"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="13dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fragmentInfoMain_tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="글 쓰기"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/baseregular"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/postWriteFragment_ibBack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/postWriteFragment_ibBack"
+                app:layout_constraintVertical_bias="0.625" />
+
+            <Button
+                android:id="@+id/postWriteFragment_btnConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="13dp"
+                android:background="@android:color/transparent"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="완료"
+                android:textColor="@color/purple_200"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- App bar 종료 -->
+
+        <!-- 스크롤뷰 시작 -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/diaryWriteFragment_nsv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postWriteFragment_clAppbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/postWriteFragment_clTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <TextView
+                            android:id="@+id/postWriteFragment_tvTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="제목"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/postWriteFragment_etPostTitle"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/postWriteFragment_etPostTitle" />
+
+                        <EditText
+                            android:id="@+id/postWriteFragment_etPostTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:background="@android:drawable/editbox_background"
+                            android:ems="10"
+                            android:text="@{post.title}"
+                            android:hint="제목을 입력해주세요."
+                            android:padding="15dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/postWriteFragment_tvTitle"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:id="@+id/postWriteFragment_clPhotoList"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="20dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginEnd="20dp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/postWriteFragment_clTitle">-->
+
+
+<!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                            android:id="@+id/postWriteFragment_clAddPhoto"-->
+<!--                            android:layout_width="80dp"-->
+<!--                            android:layout_height="80dp"-->
+<!--                            android:background="@color/grey"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/postWriteFragment_ibCamera"-->
+<!--                                android:layout_width="25dp"-->
+<!--                                android:layout_height="25dp"-->
+<!--                                android:layout_marginStart="30dp"-->
+<!--                                android:layout_marginEnd="30dp"-->
+<!--                                android:src="@drawable/camera"-->
+<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
+
+
+<!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--&lt;!&ndash;                        <androidx.recyclerview.widget.RecyclerView&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:id="@+id/postWriteFragment_rvPhoto"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                            tools:listitem="@layout/item_photo_list" />&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:layout_constraintBottom_toBottomOf="@+id/postWriteFragment_clAddPhoto"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:layout_constraintStart_toEndOf="@+id/postWriteFragment_clAddPhoto"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:layout_constraintTop_toTopOf="@+id/postWriteFragment_clAddPhoto" />&ndash;&gt;-->
+
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/postWriteFragment_clContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/postWriteFragment_clTitle">
+
+                        <TextView
+                            android:id="@+id/postWriteFragment_tvContent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="내용"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/postWriteFragment_tilPostContent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            app:boxBackgroundMode="outline"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/postWriteFragment_tvContent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/postWriteFragment_tietPostContent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:drawable/editbox_background"
+                                android:hint="내용을 입력해주세요"
+                                android:inputType="textMultiLine"
+                                android:lines="15"
+                                android:maxEms="500"
+                                android:text="@{post.content}"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/postWriteFragment_clNotice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        app:layout_constraintTop_toBottomOf="@+id/postWriteFragment_clContent"
+                        app:layout_constraintBottom_toTopOf="@+id/postWriteFragment_clAddPhoto"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <TextView
+                            android:id="@+id/warning"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="※ 주의사항"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/postWriteFragment_tvContentLen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(294/500)"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="다른 사람을 비방하는 글이나 은어 혹은 비속어가 있는 내용이 게시될 경우 법적 처벌을 받을 수 있으며 신고에 의해 글이 삭제 될 수도 있습니다."
+                            android:layout_marginTop="10dp"
+                            app:layout_constraintTop_toBottomOf="@id/warning"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/postWriteFragment_clAddPhoto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        app:layout_constraintTop_toBottomOf="@+id/postWriteFragment_clNotice"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <ImageButton
+                            android:id="@+id/postWriteFragment_ibCamera"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/camera"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <FrameLayout
+                            android:id="@+id/postWriteFragment_FlPhotoGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/postWriteFragment_tvPhotoName"
+                            app:layout_constraintStart_toEndOf="@+id/postWriteFragment_ibCamera"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/postWriteFragment_ivPhoto"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:layout_margin="10dp"
+                                android:scaleType="fitXY"
+                                tools:src="@tools:sample/avatars" />
+<!--                                app:boardImg="@{post.photoPath}"/>-->
+
+                            <ImageButton
+                                android:id="@+id/postWriteFragment_ibPhotoDelete"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="right"
+                                android:background="@android:color/transparent"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/cancel" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/postWriteFragment_tvPhotoName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="@{post.photoPath}"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/postWriteFragment_FlPhotoGroup"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

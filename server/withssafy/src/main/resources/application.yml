@@ -1,0 +1,41 @@
+spring:
+
+  devtools:
+    livereload:
+      enabled: true
+
+  datasource:
+    url: jdbc:mysql://k6d201.p.ssafy.io:3306/withssafy?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ws
+    password: 1q2w3e4r!!
+
+
+  # JPA 세팅
+  jpa:
+    hibernate:
+      ddl-auto: update # 애플리케이션 실행시점에 테이블 다 지우고 새로 생성
+#      ddl-auto: update  # 개발 단계에서는
+    #      ddl-auto: create-drop
+    #      ddl-auto: validate  # 최종 배포 운영 단계
+    #      ddl-auto: none
+    show-sql: true
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        default_batch_fetch_size: 1000 # 1:N 쿼리 N+1 페이징 문제, 최적화 옵션 (MAX는 거의 1000)
+        format_sql: true
+  messages:
+    basename: messages
+    encoding: UTF-8
+
+
+logging.level:
+  org:
+    springframework.web: DEBUG
+#    hibernate.SQL: INFO #debug # hibernate가 생성하는 로그를 다 보여준다
+# org.hibernate.type: trace # 쿼리 파라미터 로그 남기기
+
+# firebase sdk path 설정
+firebase-sdk-path: firebase/withssafy-firebase-adminsdk-a601m-157bca1f6d.json

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "518240143038",
+    "project_id": "withssafy",
+    "storage_bucket": "withssafy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518240143038:android:6c647668e61af1ded900ef",
+        "android_client_info": {
+          "package_name": "com.ssafy.withssafy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518240143038-19rchsu0d15mbk4r85f1dvsidtr3elqm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssafy.withssafy",
+            "certificate_hash": "107a71befb4e8a51ed73a285c55f4068d8ffebf4"
+          }
+        },
+        {
+          "client_id": "518240143038-1dbptjbd0knu2qb2m4sua579to6gp2fi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssafy.withssafy",
+            "certificate_hash": "292430648c7d83a9ffe2ccfdf62a8e7429d44d82"
+          }
+        },
+        {
+          "client_id": "518240143038-nubc32up63u46sgfapf8620o6d3isjmq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIdat0dJkxB4cVbp4hBS0yk7USOo9RuYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518240143038-nubc32up63u46sgfapf8620o6d3isjmq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
